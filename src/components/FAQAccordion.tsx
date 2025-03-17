@@ -1,4 +1,5 @@
 
+import ReactMarkdown from 'react-markdown';
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -78,14 +79,22 @@ const FAQAccordion = () => {
                 <Button
                   key={faq.id}
                   variant="ghost"
-                  className={`w-full justify-start text-sm ${
-                    activeFAQ === faq.id 
-                      ? "text-just-orange bg-just-orange/10" 
-                      : "text-gray-600 hover:text-just-orange hover:bg-just-orange/5"
+                      className={`w-full justify-start text-sm text-left break-words whitespace-normal ${
+                        activeFAQ === faq.id 
+                          ? "text-just-orange bg-just-orange/10" 
+                          : "text-gray-600 hover:text-just-orange hover:bg-just-orange/5"
                   }`}
                   onClick={() => {
-                    setActiveFAQ(faq.id);
-                    document.getElementById(faq.id)?.scrollIntoView({ behavior: 'smooth' });
+                    setActiveFAQ(faq.id); // Expand the correct FAQ first
+
+                    setTimeout(() => {
+                      const element = document.getElementById(faq.id);
+                      if (element) {
+                        const yOffset = -200; // Adjust this value based on your header height
+                        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+                        window.scrollTo({ top: y, behavior: "smooth" });
+                      }
+                    }, 400); // Small delay to allow accordion to expand first
                   }}
                 >
                   {faq.question}
@@ -106,7 +115,7 @@ const FAQAccordion = () => {
             </div>
           ) : (
             <div className="space-y-4">
-              <Accordion type="single" collapsible className="space-y-4">
+              <Accordion type="single" collapsible value={activeFAQ} onValueChange={setActiveFAQ}>
                 {filteredFAQs.map((faq) => (
                   <AccordionItem
                     key={faq.id}
@@ -121,14 +130,14 @@ const FAQAccordion = () => {
                         </h3>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pt-2 pb-6">
+                    <AccordionContent className="px-6 pt-2 pb-6 transition-all duration-2000 ease-in-out">
                       <div className="prose prose-sm max-w-none faq-content">
                         {faq.answer}
                         {faq.videoEmbed && (
                           <div className="mt-4">
                             <iframe
-                              width="100%"
-                              height="315"
+                              width="50%"
+                              height="50%"
                               src={faq.videoEmbed}
                               title={`Video for ${faq.question}`}
                               frameBorder="0"
