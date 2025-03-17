@@ -19,15 +19,18 @@ const FAQAccordion = () => {
   const categories = ["all", ...Array.from(new Set(faqItems.map(item => item.category)))];
 
   useEffect(() => {
-    const filtered = faqItems.filter(item => {
-      const matchesSearch = 
+    let filtered = faqItems;
+    
+    if (searchTerm) {
+      filtered = filtered.filter(item => 
         item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (typeof item.answer === 'string' && item.answer.toLowerCase().includes(searchTerm.toLowerCase()));
-
-      const matchesCategory = activeCategory === "all" || item.category === activeCategory;
-
-      return matchesSearch && matchesCategory;
-    });
+        (typeof item.answer === 'string' && item.answer.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+    }
+    
+    if (activeCategory !== "all") {
+      filtered = filtered.filter(item => item.category === activeCategory);
+    }
 
     setFilteredFAQs(filtered);
   }, [searchTerm, activeCategory]);
