@@ -1,4 +1,3 @@
-
 import FAQHeader from "@/components/FAQHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
@@ -12,26 +11,9 @@ const FAQ = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      <div className="container mx-auto px-4 py-12">
-        <FAQHeader />
-        <div className="mt-12">
-          <FAQAccordion />
-        </div>
-        <div className="mt-16">
-          <CTASection />
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
-};
-
-  return (
     <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
       <Header />
-      
+
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-12 md:py-20 bg-white border-b border-gray-100">
@@ -39,14 +21,14 @@ const FAQ = () => {
             <FAQHeader />
           </div>
         </section>
-        
+
         {/* FAQ Accordion Section */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <FAQAccordion />
           </div>
         </section>
-        
+
         {/* Still Have Questions Section */}
         <section className="py-16 bg-white border-t border-gray-100">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
@@ -77,11 +59,11 @@ const FAQ = () => {
             </div>
           </div>
         </section>
-        
+
         {/* CTA Section */}
         <CTASection />
       </main>
-      
+
       <Footer />
     </div>
   );
