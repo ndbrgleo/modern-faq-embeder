@@ -36,7 +36,11 @@ const Header = () => {
               <NavItem href="#" label="Platforms" />
               <NavItem href="#" label="Become a Partner" />
             </NavDropdown>
-            <NavItem href="/case-studies" label="Case Studies" />
+            <NavDropdown title="Case Studies">
+              <NavItem href="#" label="Comapny AS" />
+              <NavItem href="#" label="RW Co AS" />
+              <NavItem href="#" label="Swedish Transport AB" />
+            </NavDropdown>
             <NavDropdown title="Resources">
               <NavItem href="/faq" label="FAQ" isActive />
               <NavItem href="#" label="Blog" />

@@ -12,14 +12,14 @@ export const faqItems: FAQItem[] = [
     id: 'faq-1',
     question: 'What is FX trading?',
     answer: 'Foreign exchange (FX) trading is the process of converting one currency into another for various reasons, usually for commerce, trading, or tourism.',
-    category: 'basics',
+    category: 'getting started',
     videoEmbed: 'https://www.youtube.com/embed/y7iVTTH5tOA'
   },
   {
     id: 'faq-2',
     question: 'How do I get started with FX trading?',
     answer: 'To start FX trading, you need to: 1) Learn the basics of forex trading, 2) Choose a reliable broker, 3) Open and fund your trading account, 4) Develop a trading strategy.',
-    category: 'getting started',
+    category: 'basics',
     videoEmbed: 'https://www.youtube.com/embed/NhFlqFVBmxc'
   },
   {
