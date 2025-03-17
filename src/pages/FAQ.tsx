@@ -7,10 +7,26 @@ import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 const FAQ = () => {
-  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <div className="container mx-auto px-4 py-12">
+        <FAQHeader />
+        <div className="mt-12">
+          <FAQAccordion />
+        </div>
+        <div className="mt-16">
+          <CTASection />
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
