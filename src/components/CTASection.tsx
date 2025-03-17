@@ -18,7 +18,7 @@ const CTASection = () => {
               <Button className="bg-white text-just-orange hover:bg-gray-100 py-6 px-8 rounded-md transition-all text-base font-medium">
                 Book a demo
               </Button>
-              <Button variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-just-orange py-6 px-8 rounded-md transition-all text-base font-medium">
+              <Button variant="outline" className="bg-white/10 border-2 border-white text-white hover:bg-white hover:text-just-orange py-6 px-8 rounded-md transition-all text-base font-medium">
                 Learn more
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
