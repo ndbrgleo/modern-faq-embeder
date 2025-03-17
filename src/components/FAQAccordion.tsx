@@ -132,7 +132,11 @@ const FAQAccordion = () => {
                     </AccordionTrigger>
                     <AccordionContent className="px-6 pt-2 pb-6 transition-all duration-2000 ease-in-out">
                       <div className="prose prose-sm max-w-none faq-content">
-                        {faq.answer}
+                        {typeof faq.answer === 'string' ? (
+                          <ReactMarkdown>{faq.answer}</ReactMarkdown>
+                        ) : (
+                          faq.answer
+                        )}
                         {faq.videoEmbed && (
                           <div className="mt-4">
                             <iframe
