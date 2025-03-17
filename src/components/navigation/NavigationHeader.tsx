@@ -1,6 +1,6 @@
 <NavigationMenuItem>
           <Link href="/case-studies" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "h-10")}>
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle())}>
               Case Studies
             </NavigationMenuLink>
           </Link>
