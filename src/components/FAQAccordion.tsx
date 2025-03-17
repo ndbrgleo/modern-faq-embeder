@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -50,27 +51,29 @@ const FAQAccordion = () => {
         />
       </div>
 
+      {/* Horizontal Categories */}
+      <div className="mb-8 flex gap-2 overflow-x-auto pb-2">
+        {categories.map((category) => (
+          <Button
+            key={category}
+            variant={activeCategory === category ? "default" : "outline"}
+            className={`shrink-0 ${
+              activeCategory === category 
+                ? "bg-just-orange hover:bg-just-darkOrange text-white" 
+                : "hover:text-just-orange"
+            }`}
+            onClick={() => setActiveCategory(category)}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </Button>
+        ))}
+      </div>
+
       <div className="flex gap-8">
         {/* Side Index */}
         <div className="w-64 shrink-0">
           <div className="sticky top-4">
-            <div className="mb-6">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={activeCategory === category ? "default" : "ghost"}
-                  className={`w-full justify-start mb-2 ${
-                    activeCategory === category 
-                      ? "bg-just-orange hover:bg-just-darkOrange text-white" 
-                      : "hover:text-just-orange"
-                  }`}
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </Button>
-              ))}
-            </div>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {filteredFAQs.map((faq) => (
                 <Button
                   key={faq.id}
@@ -78,7 +81,7 @@ const FAQAccordion = () => {
                   className={`w-full justify-start text-sm ${
                     activeFAQ === faq.id 
                       ? "text-just-orange bg-just-orange/10" 
-                      : "text-gray-600"
+                      : "text-gray-600 hover:text-just-orange hover:bg-just-orange/5"
                   }`}
                   onClick={() => {
                     setActiveFAQ(faq.id);
@@ -124,6 +127,8 @@ const FAQAccordion = () => {
                         {faq.videoEmbed && (
                           <div className="mt-4">
                             <iframe
+                              width="100%"
+                              height="315"
                               src={faq.videoEmbed}
                               title={`Video for ${faq.question}`}
                               frameBorder="0"
