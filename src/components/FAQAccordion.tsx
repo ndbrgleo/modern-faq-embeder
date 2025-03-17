@@ -52,7 +52,7 @@ const FAQAccordion = () => {
       </div>
 
       {/* Horizontal Categories */}
-      <div className="mb-8 flex gap-2 overflow-x-auto pb-2">
+      <div className="mb-8 flex gap-2 overflow-x-auto pb-2 justify-center">
         {categories.map((category) => (
           <Button
             key={category}
