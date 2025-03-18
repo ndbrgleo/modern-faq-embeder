@@ -1,4 +1,5 @@
 
+import { Circle } from "lucide-react"; // Import a dot icon
 import ReactMarkdown from 'react-markdown';
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
@@ -74,7 +75,7 @@ const FAQAccordion = () => {
         {/* Side Index */}
         <div className="w-64 shrink-0">
           <div className="sticky top-4">
-            <div className="space-y-1">
+            <div className="space-y-5">
               {filteredFAQs.map((faq) => (
                 <Button
                   key={faq.id}
@@ -97,6 +98,7 @@ const FAQAccordion = () => {
                     }, 400); // Small delay to allow accordion to expand first
                   }}
                 >
+                  <Circle className="w-2 h-2 text-gray-800 mr-2" /> {/* Small dark dot icon */}
                   {faq.question}
                 </Button>
               ))}
